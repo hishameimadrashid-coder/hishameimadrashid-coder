@@ -1,882 +1,296 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تهنئة العروس | ألبوم الذكريات الخاص</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Canvas Confetti Library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rose: {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            200: '#fecdd3',
-                            300: '#fda4af',
-                            400: '#fb7185',
-                            500: '#f43f5e',
-                            600: '#e11d48',
-                        },
-                        gold: {
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#d97706',
-                            600: '#b45309',
-                            700: '#92400e',
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        amiri: ['Amiri', 'serif'],
-                        kufi: ['Reem Kufi', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #fff5f6 0%, #fff0f3 50%, #fce7f3 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .font-serif-title { font-family: 'Amiri', serif; }
-        .font-kufi { font-family: 'Reem Kufi', sans-serif; }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-
-        .floating-element {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-            animation: float 10s linear infinite;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.08);
-        }
-
-        .glass-modal {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(16px);
-        }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        @media print {
-            .no-print { display: none !important; }
-            .print-only { display: block !important; }
-            body { background: white !important; color: black !important; }
-            .page-break { page-break-after: always; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زفاف تغريد 10/10/2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); }
+    .glass-dark { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); }
+  </style>
 </head>
-<body class="text-gray-800 relative">
+<body class="bg-gradient-to-br from-slate-950 via-purple-950 to-pink-950 min-h-screen text-slate-100 pb-16">
 
-    <!-- Particle Animation Container -->
-    <div id="particles-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+  <!-- Header -->
+  <header class="text-center pt-10 pb-6 px-4">
+    <div class="inline-block bg-pink-500/20 border border-pink-400/30 px-4 py-1 rounded-full text-pink-300 text-xs md:text-sm font-semibold mb-3">
+      💍 حفل زفاف الأحلام
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-200 to-amber-200">
+      وليد & تغريد
+    </h1>
+    <p class="text-slate-300 mt-2 text-base md:text-lg font-medium">السبت، 10 أكتوبر 2026 (10/10/2026)</p>
+  </header>
 
-    <!-- MAIN APP CONTAINER -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col min-h-screen">
+  <!-- Countdown Timer Section -->
+  <section class="max-w-3xl mx-auto px-4 mb-10">
+    <div class="glass rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl border border-pink-300/30 text-center">
+      <h2 class="text-lg md:text-xl font-extrabold text-purple-950 mb-6">⏳ المتبقي على ليلة العمر:</h2>
+      <div class="grid grid-cols-4 gap-2 md:gap-4 text-center">
+        <div class="bg-pink-100/90 p-3 md:p-4 rounded-2xl border border-pink-200">
+          <span id="days" class="block text-3xl md:text-5xl font-black text-pink-700">00</span>
+          <span class="text-xs md:text-sm font-bold text-pink-900">يوم</span>
+        </div>
+        <div class="bg-purple-100/90 p-3 md:p-4 rounded-2xl border border-purple-200">
+          <span id="hours" class="block text-3xl md:text-5xl font-black text-purple-700">00</span>
+          <span class="text-xs md:text-sm font-bold text-purple-900">ساعة</span>
+        </div>
+        <div class="bg-indigo-100/90 p-3 md:p-4 rounded-2xl border border-indigo-200">
+          <span id="minutes" class="block text-3xl md:text-5xl font-black text-indigo-700">00</span>
+          <span class="text-xs md:text-sm font-bold text-indigo-900">دقيقة</span>
+        </div>
+        <div class="bg-amber-100/90 p-3 md:p-4 rounded-2xl border border-amber-200">
+          <span id="seconds" class="block text-3xl md:text-5xl font-black text-amber-700">00</span>
+          <span class="text-xs md:text-sm font-bold text-amber-900">ثانية</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <header class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 no-print">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-rose-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-rose-200">
-                    <i class="fa-solid font-serif text-xl">👰‍♀️</i>
-                </div>
-                <div>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-800 font-kufi">
-                        فرحة العروس <span class="text-rose-500">❤️</span>
-                    </h1>
-                    <p class="text-xs sm:text-sm text-gray-500">دفتر تهاني وذكريات زفاف خاصة ومحمية</p>
-                </div>
-            </div>
+  <!-- Tabs Navigation -->
+  <div class="max-w-md mx-auto flex justify-center mb-8 px-4 gap-2">
+    <button id="btnGuestTab" onclick="showTab('guest')" class="flex-1 py-3 px-4 rounded-2xl font-bold transition bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-lg">
+      💌 إرسال مباركة
+    </button>
+    <button id="btnBrideTab" onclick="showTab('bride')" class="flex-1 py-3 px-4 rounded-2xl font-bold transition bg-slate-800 text-slate-300 hover:text-white border border-white/10">
+      👑 بوابة العروسة (تغريد)
+    </button>
+  </div>
 
-            <!-- Protected Action Buttons -->
-            <div class="flex flex-wrap items-center gap-3">
-                <button onclick="requestSettingsAccess()" class="px-4 py-2.5 text-xs sm:text-sm font-semibold text-gray-700 bg-white/90 hover:bg-white rounded-full shadow-sm border border-rose-200 transition flex items-center gap-2">
-                    <i class="fa-solid fa-lock text-rose-500"></i>
-                    <span>إعدادات العروسين ⚙️</span>
-                </button>
-                
-                <button onclick="requestBrideAlbumAccess()" class="px-5 py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-amber-500 via-rose-500 to-rose-600 rounded-full shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                    <i class="fa-solid fa-book-open-reader text-amber-200"></i>
-                    <span>ألبوم ذكريات العروس 🔐</span>
-                </button>
-            </div>
-        </header>
+  <!-- Section 1: Send Message Form (For Friends) -->
+  <section id="guestSection" class="max-w-xl mx-auto px-4">
+    <div class="glass rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl border border-white/20">
+      <h3 class="text-xl font-extrabold text-purple-950 mb-2 text-center">شاركي تغريد أمنياتك الحلوة ✨</h3>
+      <p class="text-slate-600 text-sm text-center mb-6">اكتبي رسالتك وستصل للعروسة /p>
+      
+      <form id="wishForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-slate-800 mb-1">اسمك الكريم</label>
+          <input type="text" id="senderName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-pink-500 outline-none text-slate-900 font-medium" placeholder="مثال:  اسم صديقة العروسة">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-slate-800 mb-1">كلمتك للعروسة</label>
+          <textarea id="senderMsg" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-pink-500 outline-none text-slate-900 font-medium" placeholder="ألف مبروك يا أحلى عروسة في الدنيا..."></textarea>
+        </div>
+        <button type="submit" id="btnSubmit" class="w-full py-3.5 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-black rounded-xl shadow-lg transition transform active:scale-98">
+          إرسال التهاني فورًا 💖
+        </button>
+      </form>
+      <div id="successAlert" class="hidden mt-4 p-3 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-xl text-center font-bold">
+        تم إرسال مباركتك بنجاح وحفظها ! 🎉
+      </div>
+    </div>
+  </section>
 
-        <section class="glass-card rounded-3xl p-6 sm:p-12 mb-10 text-center relative overflow-hidden border border-rose-100 shadow-xl no-print">
-            <!-- Decorative Corners -->
-            <div class="absolute top-0 right-0 p-4 text-rose-200 pointer-events-none opacity-40">
-                <i class="fa-solid fa-feather-pointed text-5xl"></i>
-            </div>
-            <div class="absolute bottom-0 left-0 p-4 text-rose-200 pointer-events-none opacity-40 transform rotate-180">
-                <i class="fa-solid fa-feather-pointed text-5xl"></i>
-            </div>
-
-            <div class="inline-block px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 text-xs sm:text-sm font-bold mb-4 tracking-wide shadow-sm">
-                ✨ أهلاً بكم في ليلة العمر المباركة ✨
-            </div>
-
-            <h2 id="bride-groom-names" class="text-3xl sm:text-5xl lg:text-6xl font-serif-title font-bold text-gray-800 mb-3 leading-tight">
-                زفاف العروسة <span class="gold-gradient-text" id="bride-name-display">الجميلة</span> 
-            </h2>
-
-            <p id="wedding-welcome-msg" class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mb-8 font-light">
-                شاركينا أجمل التهاني والدعوات القلبية للعروس بمناسبة زفافها الميمون. كلمتك الطيبة ستُحفظ سراً في ألبوم ذكرياتها الأبدي! 💕
-            </p>
-
-            <!-- Countdown Timer -->
-            <div id="countdown-container" class="bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-2xl p-4 sm:p-6 shadow-xl max-w-xl mx-auto mb-8">
-                <h3 id="countdown-title" class="text-xs sm:text-sm font-semibold mb-3 text-rose-100">
-                    ⏳ المتبقي على ليلة العمر السعيدة:
-                </h3>
-                <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-                    <div class="bg-white/20 backdrop-blur-md rounded-xl p-2 sm:p-3">
-                        <span id="cd-days" class="block text-xl sm:text-3xl font-extrabold">00</span>
-                        <span class="text-[10px] sm:text-xs text-rose-100">يوم</span>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-md rounded-xl p-2 sm:p-3">
-                        <span id="cd-hours" class="block text-xl sm:text-3xl font-extrabold">00</span>
-                        <span class="text-[10px] sm:text-xs text-rose-100">ساعة</span>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-md rounded-xl p-2 sm:p-3">
-                        <span id="cd-minutes" class="block text-xl sm:text-3xl font-extrabold">00</span>
-                        <span class="text-[10px] sm:text-xs text-rose-100">دقيقة</span>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-md rounded-xl p-2 sm:p-3">
-                        <span id="cd-seconds" class="block text-xl sm:text-3xl font-extrabold">00</span>
-                        <span class="text-[10px] sm:text-xs text-rose-100">ثانية</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Main CTA Button for Guests -->
-            <button onclick="openWishModal()" class="inline-flex items-center gap-3 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-full shadow-xl hover:shadow-rose-300 transition transform hover:-translate-y-1 text-base sm:text-lg">
-                <i class="fa-solid fa-pen-nib text-xl"></i>
-                <span>اكتب تهنئة للعروس 💌</span>
-            </button>
-        </section>
-
-        <section class="max-w-2xl mx-auto text-center mb-16 no-print px-4">
-            <div class="glass-card rounded-2xl p-6 border border-rose-100 shadow-sm flex items-center gap-4 text-right">
-                <div class="w-12 h-12 shrink-0 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl">
-                    🔒
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-800 text-sm mb-1">خصوصية تامة للتهاني والمباركات</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed">
-                        جميع التهاني والرسائل التي يكتبها الأصدقاء تُحفظ حصرياً وسرياً داخل ألبوم ذكريات العروس المحمي برمز سري، ولا تظهر للعامة للحفاظ على خصوصية وفرحة العروس وحدها!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="mt-auto py-6 text-center text-xs text-gray-500 border-t border-rose-100 no-print">
-            <p>صُنع بكل حب ❤️ لإدخال السرور على قلب العروس في يومها السعيد</p>
-        </footer>
+  <!-- Section 2: Bride Private Area (For Taghreed) -->
+  <section id="brideSection" class="max-w-2xl mx-auto px-4 hidden">
+    
+    <!-- Login Card -->
+    <div id="brideLoginCard" class="glass rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl border border-white/20 max-w-md mx-auto">
+      <div class="text-center mb-6">
+        <span class="text-3xl">👑</span>
+        <h3 class="text-2xl font-black text-purple-950 mt-1">مرحبًا بالعروسة تغريد</h3>
+        <p class="text-slate-600 text-sm mt-1">ادخلي كلمة السر لرؤية رسائل صديقاتك والرد عليها</p>
+      </div>
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-slate-800 mb-1">كلمة السر الخاصة بكِ</label>
+          <input type="password" id="bridePassword" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-purple-600 outline-none text-center text-lg tracking-widest text-slate-900" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full py-3.5 bg-purple-900 hover:bg-purple-800 text-white font-bold rounded-xl shadow-lg transition">
+          دخول لوحة الرسائل ✨
+        </button>
+        <p id="passwordError" class="hidden text-red-600 text-xs text-center font-bold">كلمة السر غير صحيحة! (كلمة السر الافتراضية:0)</p>
+      </form>
     </div>
 
-    <!-- MODAL 1: GUEST WISH SUBMISSION MODAL -->
-    <div id="wishModal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden no-print">
-        <div class="glass-modal max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-rose-100 relative max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6 pb-3 border-b border-rose-100">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-lg">
-                        💌
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-800">اكتب تهنئة للعروس</h3>
-                        <p class="text-xs text-gray-500">اترك لها بصمة دافئة تُحفظ في ألبوم ذكرياتها</p>
-                    </div>
-                </div>
-                <button onclick="closeWishModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 flex items-center justify-center">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <form id="wishForm" onsubmit="handleWishSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">اسمك الكريم <span class="text-rose-500">*</span></label>
-                    <input type="text" id="senderName" required placeholder="مثال: سارة أحمد / صديقة العمر" class="w-full px-4 py-3 rounded-2xl bg-white/90 border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm transition">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">صلة القرابة / الصداقة</label>
-                    <select id="senderRelation" class="w-full px-4 py-3 rounded-2xl bg-white/90 border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm transition text-gray-700">
-                        <option value="صديقة العروس">👩‍❤️‍👩 صديقة العروس</option>
-                        <option value="أخت العروس">👭 أخت العروس</option>
-                        <option value="قريبة العروس">🌸 قريبة العروس</option>
-                        <option value="صديق / قريب">✨ صديق / قريب العائلة</option>
-                        <option value="زميلة عمل/دراسة">💼 زميلة عمل / دراسة</option>
-                        <option value="مُحب ومُتمني خير">❤️ مُحب ومُتمني خير</option>
-                        <option value="اخ العروسة❤️">اخ العروسة❤️</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">رسالتك والدعوات القلبية <span class="text-rose-500">*</span></label>
-                    <textarea id="wishMessage" required rows="4" placeholder="اكتب هنا أصدق التهاني والدعوات للعروس بالهناء والسعادة..." class="w-full px-4 py-3 rounded-2xl bg-white/90 border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm transition"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-2">اختر ملصقاً يُعبر عن مشاعرك:</label>
-                    <div class="grid grid-cols-6 gap-2 text-center" id="stickerGrid">
-                        <button type="button" onclick="selectSticker('💍', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition ring-2 ring-rose-400">💍</button>
-                        <button type="button" onclick="selectSticker('👑', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition">👑</button>
-                        <button type="button" onclick="selectSticker('💐', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition">💐</button>
-                        <button type="button" onclick="selectSticker('💖', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition">💖</button>
-                        <button type="button" onclick="selectSticker('🎉', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition">🎉</button>
-                        <button type="button" onclick="selectSticker('🕊️', this)" class="sticker-btn text-2xl p-2 rounded-xl bg-white border border-rose-100 hover:scale-110 transition">🕊️</button>
-                    </div>
-                    <input type="hidden" id="selectedSticker" value="💍">
-                </div>
-
-                <div class="pt-2">
-                    <button type="submit" id="submitWishBtn" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>إرسال التهنئة وإضافتها لألبوم العروس 💌</span>
-                    </button>
-                </div>
-            </form>
+    <!-- Inbox Dashboard (Hidden until login) -->
+    <div id="brideDashboard" class="hidden space-y-6">
+      <div class="glass-dark rounded-3xl p-6 border border-pink-500/30 flex justify-between items-center">
+        <div>
+          <h3 class="text-xl font-bold text-pink-300">صندوق رسائل العروسة (Firebase) 💌</h3>
+          <p class="text-xs text-slate-400 mt-1">إجمالي الرسائل الواردة: <span id="msgCount" class="font-bold text-pink-400">0</span></p>
         </div>
+        <button id="btnLogout" class="text-xs bg-red-500/20 text-red-300 border border-red-500/40 px-3 py-1.5 rounded-lg hover:bg-red-500/30">
+          تسجيل خروج
+        </button>
+      </div>
+
+      <!-- Messages Feed -->
+      <div id="messagesList" class="space-y-4">
+        <!-- Dynamically Populated via Firebase -->
+      </div>
     </div>
 
-    <!-- MODAL 2: PASSWORD PROMPT MODAL (FOR BOTH BRIDE ALBUM & SETTINGS) -->
-    <div id="passwordModal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden no-print">
-        <div class="glass-modal max-w-sm w-full rounded-3xl p-6 sm:p-8 shadow-2xl text-center border border-white">
-            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 mx-auto mb-4 flex items-center justify-center text-2xl shadow-inner">
-                🔐
-            </div>
-            <h3 id="pinModalTitle" class="text-xl font-bold text-gray-800 mb-1">منطقة محمية</h3>
-            <p id="pinModalDesc" class="text-xs text-gray-500 mb-6">أدخلي الرقم السري للمتابعة</p>
+  </section>
 
-            <form onsubmit="handlePasswordSubmit(event)" class="space-y-4">
-                <div>
-                    <input type="password" id="pinInput" placeholder="أدخلي الرقم السري..." class="w-full text-center px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-lg font-bold tracking-widest bg-white">
-                    <p id="passwordError" class="text-xs text-rose-500 mt-2 hidden font-semibold">❌ الرقم السري غير صحيح!</p>
-                </div>
+  <!-- JavaScript Modules & Firebase Integration -->
+  <script type="module">
+    // 1. Firebase Imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-                <div class="flex items-center gap-2">
-                    <button type="button" onclick="closePasswordModal()" class="w-1/2 py-2.5 rounded-xl text-xs font-bold text-gray-500 bg-gray-100 hover:bg-gray-200">إلغاء</button>
-                    <button type="submit" class="w-1/2 py-2.5 rounded-xl text-xs font-bold text-white bg-rose-500 hover:bg-rose-600 shadow-md">فتح ✨</button>
-                </div>
-            </form>
-            <p class="text-[11px] text-gray-400 mt-4">(الرمز الافتراضي: <b>2026</b>)</p>
-        </div>
-    </div>
+    // 2. Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJO8GEvTnKkF7khs4UAeJgJwitsn46rNg",
+      authDomain: "my-wep-app-647f8.firebaseapp.com",
+      projectId: "my-wep-app-647f8",
+      storageBucket: "my-wep-app-647f8.firebasestorage.app",
+      messagingSenderId: "925399489153",
+      appId: "1:925399489153:web:0d2e089ba6d0e340b2cb80",
+      measurementId: "G-KQREG7E7XF"
+    };
 
-    <!-- MODAL 3: PROTECTED SETTINGS MODAL -->
-    <div id="settingsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
-        <div class="glass-modal max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-white max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-sliders text-rose-500"></i>
-                    <span>إعدادات العروسين (محمية)</span>
-                </h3>
-                <button onclick="closeSettingsModal()" class="text-gray-400 hover:text-gray-600 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+    // 3. Initialize Firebase & Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const wishesRef = collection(db, "wishes");
 
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">اسم العروسة</label>
-                    <input type="text" id="settingBrideName" class="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm bg-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">اسم العريس (اختياري)</label>
-                    <input type="text" id="settingGroomName" placeholder="مثال: أحمد" class="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm bg-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">تاريخ وموعد حفل الزفاف</label>
-                    <input type="datetime-local" id="settingWeddingDate" class="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm text-gray-700 bg-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">الرقم السري الخاص (PIN Code)</label>
-                    <input type="text" id="settingBridePin" placeholder="الرمز الافتراضي 2026" class="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm font-bold bg-white">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">رسالة الترحيب الرئيسية</label>
-                    <textarea id="settingWelcomeMessage" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm bg-white"></textarea>
-                </div>
-            </div>
+    // --- Countdown Timer ---
+    const weddingTarget = new Date(2026, 9, 10, 0, 0, 0).getTime(); // 10/10/2026
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingTarget - now;
+      if (diff > 0) {
+        document.getElementById('days').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById('hours').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-            <div class="mt-6 flex justify-end gap-2">
-                <button onclick="closeSettingsModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-gray-500 hover:bg-gray-100">إلغاء</button>
-                <button onclick="saveWeddingSettings()" class="px-5 py-2 rounded-xl text-xs font-bold text-white bg-rose-500 hover:bg-rose-600 shadow-md">حفظ التغييرات ✨</button>
-            </div>
-        </div>
-    </div>
+    // --- Send Message to Firebase Firestore ---
+    document.getElementById('wishForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const msg = document.getElementById('senderMsg').value;
+      const btn = document.getElementById('btnSubmit');
 
-    <!-- MODAL 4: BRIDE MEMORY ALBUM & SLIDESHOW (PRIVATE) -->
-    <div id="brideAlbumModal" class="fixed inset-0 bg-rose-950/95 backdrop-blur-lg z-50 flex flex-col hidden overflow-y-auto no-scrollbar">
-        <!-- Top Toolbar -->
-        <div class="flex items-center justify-between p-4 sm:p-6 text-white no-print border-b border-rose-900">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-amber-400 text-gray-900 flex items-center justify-center font-bold shadow-md">
-                    👑
-                </div>
-                <div>
-                    <h2 class="font-bold text-base sm:text-lg">ألبوم ذكريات العروسة <span id="albumBrideName"></span></h2>
-                    <p class="text-xs text-rose-200">سجل مباركات الأصدقاء الخاص - للعروس فقط 🔐</p>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-2 sm:gap-4">
-                <button onclick="window.print()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold rounded-xl text-xs sm:text-sm flex items-center gap-2 transition shadow-md">
-                    <i class="fa-solid fa-print"></i>
-                    <span>طباعة / حفظ كـ PDF</span>
-                </button>
-                <button onclick="closeBrideAlbumMode()" class="w-10 h-10 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Album Container -->
-        <div class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-8 flex flex-col justify-center">
-            
-            <!-- PRINT HEADER ONLY VISIBLE WHEN PRINTING -->
-            <div class="hidden print-only text-center mb-8 pb-4 border-b-2 border-amber-300">
-                <h1 class="text-3xl font-bold text-gray-900 font-serif-title">كتاب ذكريات ومباركات زفاف العروس</h1>
-                <p class="text-sm text-gray-600 mt-2">جميع التهاني والدعوات القلبية المقدمة للعروسة الجميلة</p>
-            </div>
-
-            <!-- Search & Filter inside Album -->
-            <div class="glass-card rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 border border-rose-200 no-print">
-                <div class="relative w-full sm:w-auto flex-1">
-                    <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3 text-rose-400 text-sm"></i>
-                    <input type="text" id="albumSearchInput" oninput="renderAlbumSlides()" placeholder="بحث في تهاني الأصدقاء..." class="w-full pr-10 pl-4 py-2 text-xs sm:text-sm rounded-xl bg-white border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-400 text-gray-800">
-                </div>
-                <div class="flex items-center justify-between w-full sm:w-auto gap-2 text-xs text-gray-700">
-                    <span class="font-bold">إجمالي الرسائل: <span id="wishesCount" class="text-rose-600">0</span></span>
-                    <select id="albumFilterRelation" onchange="renderAlbumSlides()" class="px-3 py-2 rounded-xl bg-white border border-rose-200 focus:outline-none text-xs">
-                        <option value="ALL">كل العلاقات</option>
-                        <option value="صديقة العروس">صديقات</option>
-                        <option value="أخت العروس">أخوات</option>
-                        <option value="قريبة العروس">قريبات</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Slideshow Card -->
-            <div id="albumSlideContent" class="glass-card bg-white rounded-3xl p-8 sm:p-12 shadow-2xl text-center relative border-2 border-amber-200 min-h-[350px] flex flex-col justify-between">
-                <!-- Slide Header -->
-                <div id="albumSlideHeader" class="mb-4">
-                    <!-- Populated dynamically -->
-                </div>
-
-                <!-- Slide Message -->
-                <div id="albumSlideBody" class="my-6">
-                    <!-- Message text -->
-                </div>
-
-                <!-- Slide Footer -->
-                <div id="albumSlideFooter" class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-gray-400">
-                    <!-- Footer Info -->
-                </div>
-            </div>
-
-            <!-- Empty State for Album -->
-            <div id="albumEmptyState" class="hidden text-center py-16 px-4 glass-card rounded-3xl border border-rose-100 bg-white/10">
-                <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/20 text-amber-200 flex items-center justify-center text-4xl">
-                    💌
-                </div>
-                <h4 class="text-lg font-bold text-white mb-1">لا توجد تهاني محفوظة حتى الآن</h4>
-                <p class="text-xs text-rose-200">شارك رابط الموقع مع الأصدقاء لتبدأ التهاني في التراكم هنا خصيصاً لكِ!</p>
-            </div>
-
-            <!-- Navigation Controls (For On-Screen Slideshow) -->
-            <div id="albumNavControls" class="flex items-center justify-between mt-6 text-white no-print">
-                <button onclick="prevAlbumSlide()" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-2xl text-sm font-bold flex items-center gap-2 transition">
-                    <i class="fa-solid fa-chevron-right"></i>
-                    <span>الرسالة السابقة</span>
-                </button>
-                <span id="albumSlideIndex" class="text-xs font-semibold text-rose-200">1 من 1</span>
-                <button onclick="nextAlbumSlide()" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-2xl text-sm font-bold flex items-center gap-2 transition">
-                    <span>الرسالة التالية</span>
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Firebase SDK Integration & Cloud Firestore Logic -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCmUPl22UJCUyk0EQI_3MIb1HQb0NJ6Ogg",
-            authDomain: "ttttttt-vbn.firebaseapp.com",
-            projectId: "ttttttt-vbn",
-            storageBucket: "ttttttt-vbn.firebasestorage.app",
-            messagingSenderId: "22840371433",
-            appId: "1:22840371433:web:d31a8359cfa28124666878",
-            measurementId: "G-Y44RM549DY"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-
-        // Expose db and firestore methods globally for app usage
-        window.db = db;
-        window.collection = collection;
-        window.addDoc = addDoc;
-        window.getDocs = getDocs;
-        window.query = query;
-        window.orderBy = orderBy;
-
-        // Trigger initial fetch from cloud database
-        if (typeof window.loadWishesFromCloud === 'function') {
-            window.loadWishesFromCloud();
-        }
-    </script>
-
-    <script>
-        const STORAGE_KEY_SETTINGS = 'bride_wedding_settings_secure_v2';
-        let wishesList = [];
-
-        const defaultWishes = [
-            {
-                id: '1',
-                sender: 'سارة أختك',
-                relation: 'أخت العروس',
-                message: 'ألف مبروك يا أجمل عروسة بالدنيا كلها! ربنا يسعدك ويهنيكي ويجعل حياتك الجاية كلها فرح وسعادة وخير 💕',
-                sticker: '💍',
-                likes: 5,
-                date: 'اليوم'
-            }
-        ];
+      try {
+        btn.disabled = true;
+        btn.innerText = "جاري الإرسال...";
         
-        const defaultDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-        const dateFormatted = defaultDate.toISOString().slice(0, 16);
+        await addDoc(wishesRef, {
+          sender: name,
+          text: msg,
+          reply: '',
+          createdAt: new Date()
+        });
 
-        let weddingSettings = {
-            brideName: 'الجميلة',
-            groomName: '',
-            weddingDate: dateFormatted,
-            bridePin: '2026',
-            welcomeMsg: 'شاركينا أجمل التهاني والدعوات القلبية للعروس بمناسبة زفافها الميمون. كلمتك الطيبة ستُحفظ سراً في ألبوم ذكرياتها الأبدي! 💕'
-        };
+        document.getElementById('wishForm').reset();
+        const alert = document.getElementById('successAlert');
+        alert.classList.remove('hidden');
+        setTimeout(() => alert.classList.add('hidden'), 4000);
+      } catch (err) {
+        alert("حدث خطأ أثناء الإرسال، يُرجى التأكد من ضبط Security Rules في Firebase");
+        console.error(err);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = "إرسال التهاني فورًا 💖";
+      }
+    });
 
-        let currentActionTarget = null;
-        let currentAlbumIndex = 0;
-        let countdownInterval = null;
+    // --- Realtime Messages Listener for Bride ---
+    let unsubscribe = null;
+    function listenToMessages() {
+      const q = query(wishesRef, orderBy("createdAt", "desc"));
+      unsubscribe = onSnapshot(q, (snapshot) => {
+        const messagesList = document.getElementById('messagesList');
+        document.getElementById('msgCount').innerText = snapshot.size;
 
-        window.onload = function() {
-            loadSettings();
-            initParticles();
-            startCountdown();
-            // Try loading from cloud if ready, else fallback to default
-            setTimeout(loadWishesFromCloud, 500);
-        };
-
-        async function loadWishesFromCloud() {
-            if (!window.db) {
-                wishesList = defaultWishes;
-                return;
-            }
-            try {
-                const q = query(collection(window.db, "wishes"));
-                const querySnapshot = await getDocs(q);
-                const cloudWishes = [];
-                querySnapshot.forEach((doc) => {
-                    cloudWishes.push({ id: doc.id, ...doc.data() });
-                });
-
-                if (cloudWishes.length > 0) {
-                    wishesList = cloudWishes;
-                } else {
-                    wishesList = defaultWishes;
-                }
-            } catch (e) {
-                console.error("Error loading from cloud: ", e);
-                wishesList = defaultWishes;
-            }
+        if (snapshot.empty) {
+          messagesList.innerHTML = `<div class="glass-dark p-8 rounded-2xl text-center text-slate-400">لا توجد رسائل واردة حتى الآن 💌</div>`;
+          return;
         }
 
-        function initParticles() {
-            const container = document.getElementById('particles-container');
-            if (!container) return;
-            const icons = ['🌸', '❤️', '✨', '💖', '🕊️', '💍'];
-            const particleCount = 15;
+        messagesList.innerHTML = '';
+        snapshot.forEach((docSnap) => {
+          const item = docSnap.data();
+          const id = docSnap.id;
+          const dateStr = item.createdAt ? new Date(item.createdAt.toDate()).toLocaleDateString('ar-EG') : '';
 
-            for (let i = 0; i < particleCount; i++) {
-                const el = document.createElement('div');
-                el.className = 'floating-element text-lg sm:text-2xl opacity-70';
-                el.innerText = icons[Math.floor(Math.random() * icons.length)];
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.animationDuration = (8 + Math.random() * 10) + 's';
-                el.style.animationDelay = (Math.random() * 5) + 's';
-                container.appendChild(el);
-            }
-        }
+          const card = document.createElement('div');
+          card.className = "glass-dark rounded-2xl p-5 border border-purple-500/20 text-slate-100 shadow-lg";
+          card.innerHTML = `
+            <div class="flex justify-between items-start mb-2">
+              <h4 class="font-bold text-pink-300 text-lg">من: ${item.sender}</h4>
+              <span class="text-xs text-slate-400">${dateStr}</span>
+            </div>
+            <p class="text-slate-200 text-sm leading-relaxed mb-4 bg-slate-900/50 p-3 rounded-xl">${item.text}</p>
+            
+            ${item.reply ? `
+              <div class="bg-pink-950/60 border border-pink-500/30 p-3 rounded-xl">
+                <span class="text-xs text-pink-400 font-bold block mb-1">ردّكِ يا تغريد:</span>
+                <p class="text-xs text-slate-200">${item.reply}</p>
+              </div>
+            ` : `
+              <div class="mt-3 flex gap-2">
+                <input type="text" id="replyInput-${id}" class="flex-1 bg-slate-900 border border-slate-700 px-3 py-1.5 text-xs rounded-lg text-white outline-none focus:border-pink-500" placeholder="اكتبي ردك هنا...">
+                <button data-id="${id}" class="btn-reply bg-pink-600 hover:bg-pink-500 text-white text-xs px-4 py-1.5 rounded-lg font-bold">رد</button>
+              </div>
+            `}
+          `;
+          messagesList.appendChild(card);
+        });
 
-        function loadSettings() {
-            const saved = localStorage.getItem(STORAGE_KEY_SETTINGS);
-            if (saved) {
-                try { 
-                    const parsed = JSON.parse(saved);
-                    weddingSettings = { ...weddingSettings, ...parsed };
-                } catch(e){}
-            }
-            updateSettingsUI();
-        }
+        // Attach event listeners to Reply buttons
+        document.querySelectorAll('.btn-reply').forEach(button => {
+          button.addEventListener('click', async (e) => {
+            const docId = e.target.getAttribute('data-id');
+            const replyText = document.getElementById(`replyInput-${docId}`).value.trim();
+            if (!replyText) return;
 
-        function saveSettingsToStorage() {
-            localStorage.setItem(STORAGE_KEY_SETTINGS, JSON.stringify(weddingSettings));
-        }
+            const docRef = doc(db, "wishes", docId);
+            await updateDoc(docRef, { reply: replyText });
+          });
+        });
+      });
+    }
 
-        function updateSettingsUI() {
-            const brideGroomHeader = document.getElementById('bride-groom-names');
-            const welcomeMsgDisplay = document.getElementById('wedding-welcome-msg');
-            const albumBrideName = document.getElementById('albumBrideName');
+    // --- Bride Login Logic ---
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pass = document.getElementById('bridePassword').value;
+      if (pass === '1010') {
+        document.getElementById('brideLoginCard').classList.add('hidden');
+        document.getElementById('brideDashboard').classList.remove('hidden');
+        listenToMessages();
+      } else {
+        document.getElementById('passwordError').classList.remove('hidden');
+      }
+    });
 
-            if (weddingSettings.groomName && weddingSettings.groomName.trim() !== '') {
-                brideGroomHeader.innerHTML = `زفاف العروسة <span class="gold-gradient-text">${escapeHtml(weddingSettings.brideName)}</span> & <span class="text-rose-500">${escapeHtml(weddingSettings.groomName)}</span>`;
-            } else {
-                brideGroomHeader.innerHTML = `زفاف العروسة <span class="gold-gradient-text">${escapeHtml(weddingSettings.brideName)}</span>`;
-            }
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      document.getElementById('brideLoginCard').classList.remove('hidden');
+      document.getElementById('brideDashboard').classList.add('hidden');
+      document.getElementById('bridePassword').value = '';
+      if (unsubscribe) unsubscribe();
+    });
 
-            welcomeMsgDisplay.innerText = weddingSettings.welcomeMsg;
-            if(albumBrideName) albumBrideName.innerText = weddingSettings.brideName;
+    // Global Tab Switching
+    window.showTab = function(tab) {
+      const guestSec = document.getElementById('guestSection');
+      const brideSec = document.getElementById('brideSection');
+      const btnGuest = document.getElementById('btnGuestTab');
+      const btnBride = document.getElementById('btnBrideTab');
 
-            document.getElementById('settingBrideName').value = weddingSettings.brideName;
-            document.getElementById('settingGroomName').value = weddingSettings.groomName || '';
-            document.getElementById('settingWeddingDate').value = weddingSettings.weddingDate;
-            document.getElementById('settingBridePin').value = weddingSettings.bridePin || '2026';
-            document.getElementById('settingWelcomeMessage').value = weddingSettings.welcomeMsg;
-        }
-
-        function startCountdown() {
-            if (countdownInterval) clearInterval(countdownInterval);
-
-            function update() {
-                const target = new Date(weddingSettings.weddingDate).getTime();
-                const now = new Date().getTime();
-
-                if (isNaN(target)) {
-                    document.getElementById('countdown-title').innerText = 'رجاءً حددي تاريخ زفاف صحيح من الإعدادات';
-                    return;
-                }
-
-                const diff = target - now;
-
-                if (diff <= 0) {
-                    document.getElementById('countdown-title').innerText = '🎉 حان موعد ليلة العمر السعيدة! ألف مبروك للعروسين 🎉';
-                    document.getElementById('cd-days').innerText = '00';
-                    document.getElementById('cd-hours').innerText = '00';
-                    document.getElementById('cd-minutes').innerText = '00';
-                    document.getElementById('cd-seconds').innerText = '00';
-                    return;
-                }
-
-                document.getElementById('countdown-title').innerText = '⏳ المتبقي على ليلة العمر السعيدة:';
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById('cd-days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('cd-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('cd-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-            }
-
-            update();
-            countdownInterval = setInterval(update, 1000);
-        }
-
-        function openWishModal() {
-            document.getElementById('wishModal').classList.remove('hidden');
-        }
-
-        function closeWishModal() {
-            document.getElementById('wishModal').classList.add('hidden');
-        }
-
-        function selectSticker(emoji, btn) {
-            document.querySelectorAll('.sticker-btn').forEach(b => {
-                b.classList.remove('ring-2', 'ring-rose-400');
-            });
-            btn.classList.add('ring-2', 'ring-rose-400');
-            document.getElementById('selectedSticker').value = emoji;
-        }
-
-        async function handleWishSubmit(e) {
-            e.preventDefault();
-
-            const sender = document.getElementById('senderName').value.trim();
-            const relation = document.getElementById('senderRelation').value;
-            const message = document.getElementById('wishMessage').value.trim();
-            const sticker = document.getElementById('selectedSticker').value || '💍';
-
-            if (!sender || !message) return;
-
-            const submitBtn = document.getElementById('submitWishBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'جاري الإرسال للسحابة... ⏳';
-
-            const newWish = {
-                sender: sender,
-                relation: relation,
-                message: message,
-                sticker: sticker,
-                likes: 0,
-                date: new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'short', day: 'numeric' }),
-                timestamp: Date.now()
-            };
-
-            try {
-                if (window.db) {
-                    await addDoc(collection(window.db, "wishes"), newWish);
-                }
-                wishesList.unshift(newWish);
-
-                if (typeof confetti === 'function') {
-                    confetti({
-                        particleCount: 120,
-                        spread: 80,
-                        origin: { y: 0.6 }
-                    });
-                }
-
-                document.getElementById('wishForm').reset();
-                const defaultStickerBtn = document.querySelector('.sticker-btn');
-                if (defaultStickerBtn) selectSticker('💍', defaultStickerBtn);
-                closeWishModal();
-
-                showCustomMessageBox('تم إرسال تهنئتك بنجاح وحفظها في سحابة ألبوم العروس! ❤️');
-            } catch (err) {
-                console.error("Error adding document: ", err);
-                alert("حدث خطأ أثناء حفظ التهنئة في السحابة. تأكد من تفعيل Firestore Database.");
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>إرسال التهنئة وإضافتها لألبوم العروس 💌</span>';
-            }
-        }
-
-        function showCustomMessageBox(msg) {
-            const div = document.createElement('div');
-            div.className = 'fixed top-6 left-1/2 transform -translate-x-1/2 bg-gray-900/95 text-white px-6 py-3 rounded-2xl shadow-2xl z-50 text-sm font-bold backdrop-blur-md border border-rose-500 animate-bounce';
-            div.innerText = msg;
-            document.body.appendChild(div);
-            setTimeout(() => div.remove(), 4000);
-        }
-
-        function requestBrideAlbumAccess() {
-            currentActionTarget = 'album';
-            document.getElementById('pinModalTitle').innerText = 'ألبوم ذكريات العروس';
-            document.getElementById('pinModalDesc').innerText = 'أدخلي الرقم السري لرؤية ألبوم ذكرياتك والمباركات';
-            openPasswordModal();
-        }
-
-        function requestSettingsAccess() {
-            currentActionTarget = 'settings';
-            document.getElementById('pinModalTitle').innerText = 'إعدادات العروسين';
-            document.getElementById('pinModalDesc').innerText = 'أدخلي الرقم السري لتعديل البيانات وتاريخ الفرح';
-            openPasswordModal();
-        }
-
-        function openPasswordModal() {
-            document.getElementById('pinInput').value = '';
-            document.getElementById('passwordError').classList.add('hidden');
-            document.getElementById('passwordModal').classList.remove('hidden');
-        }
-
-        function closePasswordModal() {
-            document.getElementById('passwordModal').classList.add('hidden');
-        }
-
-        function handlePasswordSubmit(e) {
-            e.preventDefault();
-            const inputPin = document.getElementById('pinInput').value.trim();
-            const actualPin = weddingSettings.bridePin || '2026';
-
-            if (inputPin === actualPin) {
-                closePasswordModal();
-                if (currentActionTarget === 'album') {
-                    openBrideAlbumMode();
-                } else if (currentActionTarget === 'settings') {
-                    openSettingsModal();
-                }
-            } else {
-                document.getElementById('passwordError').classList.remove('hidden');
-            }
-        }
-
-        function openSettingsModal() {
-            document.getElementById('settingsModal').classList.remove('hidden');
-        }
-
-        function closeSettingsModal() {
-            document.getElementById('settingsModal').classList.add('hidden');
-        }
-
-        function saveWeddingSettings() {
-            weddingSettings.brideName = document.getElementById('settingBrideName').value || 'الجميلة';
-            weddingSettings.groomName = document.getElementById('settingGroomName').value;
-            weddingSettings.weddingDate = document.getElementById('settingWeddingDate').value;
-            weddingSettings.bridePin = document.getElementById('settingBridePin').value || '2026';
-            weddingSettings.welcomeMsg = document.getElementById('settingWelcomeMessage').value;
-
-            saveSettingsToStorage();
-            updateSettingsUI();
-            startCountdown();
-            closeSettingsModal();
-            showCustomMessageBox('تم حفظ التعديلات بنجاح ✨');
-        }
-
-        async function openBrideAlbumMode() {
-            currentAlbumIndex = 0;
-            document.getElementById('brideAlbumModal').classList.remove('hidden');
-            await loadWishesFromCloud();
-            renderAlbumSlides();
-        }
-
-        function closeBrideAlbumMode() {
-            document.getElementById('brideAlbumModal').classList.add('hidden');
-        }
-
-        function renderAlbumSlides() {
-            const slideContent = document.getElementById('albumSlideContent');
-            const emptyState = document.getElementById('albumEmptyState');
-            const navControls = document.getElementById('albumNavControls');
-            const wishesCountEl = document.getElementById('wishesCount');
-
-            const searchTerm = document.getElementById('albumSearchInput').value.toLowerCase();
-            const filterRelation = document.getElementById('albumFilterRelation').value;
-
-            const filtered = wishesList.filter(item => {
-                const matchesSearch = (item.sender || '').toLowerCase().includes(searchTerm) || (item.message || '').toLowerCase().includes(searchTerm);
-                const matchesRel = filterRelation === 'ALL' || item.relation === filterRelation;
-                return matchesSearch && matchesRel;
-            });
-
-            wishesCountEl.innerText = filtered.length;
-
-            if (filtered.length === 0) {
-                slideContent.classList.add('hidden');
-                navControls.classList.add('hidden');
-                emptyState.classList.remove('hidden');
-                return;
-            } else {
-                slideContent.classList.remove('hidden');
-                navControls.classList.remove('hidden');
-                emptyState.classList.add('hidden');
-            }
-
-            if (currentAlbumIndex >= filtered.length) {
-                currentAlbumIndex = 0;
-            }
-
-            const item = filtered[currentAlbumIndex];
-            const slideHeader = document.getElementById('albumSlideHeader');
-            const slideBody = document.getElementById('albumSlideBody');
-            const slideFooter = document.getElementById('albumSlideFooter');
-            const slideIndex = document.getElementById('albumSlideIndex');
-
-            slideHeader.innerHTML = `
-                <div class="text-5xl mb-2">${item.sticker || '💍'}</div>
-                <h3 class="text-2xl font-bold text-gray-800 font-serif-title">${escapeHtml(item.sender)}</h3>
-                <span class="inline-block mt-1 text-xs px-3 py-1 rounded-full bg-rose-100 text-rose-700 font-bold">
-                    ${escapeHtml(item.relation)}
-                </span>
-            `;
-
-            slideBody.innerHTML = `
-                <p class="text-lg sm:text-2xl font-serif-title text-gray-800 leading-relaxed italic px-4">
-                    "${escapeHtml(item.message)}"
-                </p>
-            `;
-
-            slideFooter.innerHTML = `
-                <span>❤️ ${item.likes || 0} إعجاب</span>
-                <span>تاريخ التهنئة: ${escapeHtml(item.date)}</span>
-            `;
-
-            slideIndex.innerText = `${currentAlbumIndex + 1} من ${filtered.length}`;
-        }
-
-        function nextAlbumSlide() {
-            const searchTerm = document.getElementById('albumSearchInput').value.toLowerCase();
-            const filterRelation = document.getElementById('albumFilterRelation').value;
-            const filtered = wishesList.filter(item => {
-                const matchesSearch = (item.sender || '').toLowerCase().includes(searchTerm) || (item.message || '').toLowerCase().includes(searchTerm);
-                const matchesRel = filterRelation === 'ALL' || item.relation === filterRelation;
-                return matchesSearch && matchesRel;
-            });
-
-            if (filtered.length === 0) return;
-
-            if (currentAlbumIndex < filtered.length - 1) {
-                currentAlbumIndex++;
-            } else {
-                currentAlbumIndex = 0;
-            }
-            renderAlbumSlides();
-        }
-
-        function prevAlbumSlide() {
-            const searchTerm = document.getElementById('albumSearchInput').value.toLowerCase();
-            const filterRelation = document.getElementById('albumFilterRelation').value;
-            const filtered = wishesList.filter(item => {
-                const matchesSearch = (item.sender || '').toLowerCase().includes(searchTerm) || (item.message || '').toLowerCase().includes(searchTerm);
-                const matchesRel = filterRelation === 'ALL' || item.relation === filterRelation;
-                return matchesSearch && matchesRel;
-            });
-
-            if (filtered.length === 0) return;
-
-            if (currentAlbumIndex > 0) {
-                currentAlbumIndex--;
-            } else {
-                currentAlbumIndex = filtered.length - 1;
-            }
-            renderAlbumSlides();
-        }
-
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.innerText = text;
-            return div.innerHTML;
-        }
-    </script>
+      if (tab === 'guest') {
+        guestSec.classList.remove('hidden');
+        brideSec.classList.add('hidden');
+        btnGuest.className = "flex-1 py-3 px-4 rounded-2xl font-bold transition bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-lg";
+        btnBride.className = "flex-1 py-3 px-4 rounded-2xl font-bold transition bg-slate-800 text-slate-300 hover:text-white border border-white/10";
+      } else {
+        guestSec.classList.add('hidden');
+        brideSec.classList.remove('hidden');
+        btnBride.className = "flex-1 py-3 px-4 rounded-2xl font-bold transition bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-lg";
+        btnGuest.className = "flex-1 py-3 px-4 rounded-2xl font-bold transition bg-slate-800 text-slate-300 hover:text-white border border-white/10";
+      }
+    };
+  </script>
 </body>
 </html>
