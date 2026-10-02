@@ -60,16 +60,16 @@
     </button>
   </div>
 
-  <!-- Section 1: Send Message Form (For Friends) -->
-  <section id="guestSection" class="max-w-xl mx-auto px-4">
+  <!-- Section 1: Send Message Form & Public Feed (For Friends) -->
+  <section id="guestSection" class="max-w-xl mx-auto px-4 space-y-8">
     <div class="glass rounded-3xl p-6 md:p-8 text-slate-900 shadow-2xl border border-white/20">
       <h3 class="text-xl font-extrabold text-purple-950 mb-2 text-center">شاركي تغريد أمنياتك الحلوة ✨</h3>
-      <p class="text-slate-600 text-sm text-center mb-6">اكتبي رسالتك وستصل للعروسة /p>
+      <p class="text-slate-600 text-sm text-center mb-6">اكتبي رسالتك وستصل للعروسة</p>
       
       <form id="wishForm" class="space-y-4">
         <div>
           <label class="block text-sm font-bold text-slate-800 mb-1">اسمك الكريم</label>
-          <input type="text" id="senderName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-pink-500 outline-none text-slate-900 font-medium" placeholder="مثال:  اسم صديقة العروسة">
+          <input type="text" id="senderName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-pink-500 outline-none text-slate-900 font-medium" placeholder="مثال: اسم صديقة العروسة">
         </div>
         <div>
           <label class="block text-sm font-bold text-slate-800 mb-1">كلمتك للعروسة</label>
@@ -83,6 +83,14 @@
         تم إرسال مباركتك بنجاح وحفظها ! 🎉
       </div>
     </div>
+
+    <!-- Public Wishes & Bride Replies Stream -->
+    <div>
+      <h3 class="text-lg font-bold text-pink-200 mb-4 text-center">💌 رسائل التهاني وردود العروسة</h3>
+      <div id="publicWishesList" class="space-y-4">
+        <!-- Public messages and bride replies render here -->
+      </div>
+    </div>
   </section>
 
   <!-- Section 2: Bride Private Area (For Taghreed) -->
@@ -93,7 +101,7 @@
       <div class="text-center mb-6">
         <span class="text-3xl">👑</span>
         <h3 class="text-2xl font-black text-purple-950 mt-1">مرحبًا بالعروسة تغريد</h3>
-        <p class="text-slate-600 text-sm mt-1">ادخلي كلمة السر لرؤية رسائل صديقاتك والرد عليها</p>
+        <p class="text-slate-600 text-sm mt-1">ادخلي كلمة السر لرؤية رسائل صديقاتك والرد عليها أو حذفها</p>
       </div>
       <form id="loginForm" class="space-y-4">
         <div>
@@ -103,7 +111,7 @@
         <button type="submit" class="w-full py-3.5 bg-purple-900 hover:bg-purple-800 text-white font-bold rounded-xl shadow-lg transition">
           دخول لوحة الرسائل ✨
         </button>
-        <p id="passwordError" class="hidden text-red-600 text-xs text-center font-bold">كلمة السر غير صحيحة! (كلمة السر الافتراضية:0)</p>
+        <p id="passwordError" class="hidden text-red-600 text-xs text-center font-bold">كلمة السر غير صحيحة! (كلمة السر الافتراضية: 1010)</p>
       </form>
     </div>
 
@@ -131,7 +139,7 @@
   <script type="module">
     // 1. Firebase Imports
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
     // 2. Firebase Config
     const firebaseConfig = {
@@ -195,7 +203,41 @@
       }
     });
 
-    // --- Realtime Messages Listener for Bride ---
+    // --- Realtime Public Messages & Replies Stream ---
+    const qPublic = query(wishesRef, orderBy("createdAt", "desc"));
+    onSnapshot(qPublic, (snapshot) => {
+      const publicList = document.getElementById('publicWishesList');
+      if (snapshot.empty) {
+        publicList.innerHTML = `<div class="glass-dark p-6 rounded-2xl text-center text-slate-400">كن أول من يرسل مباركة للعروسة! 💖</div>`;
+        return;
+      }
+
+      publicList.innerHTML = '';
+      snapshot.forEach((docSnap) => {
+        const item = docSnap.data();
+        const dateStr = item.createdAt ? new Date(item.createdAt.toDate()).toLocaleDateString('ar-EG') : '';
+
+        const card = document.createElement('div');
+        card.className = "glass-dark rounded-2xl p-5 border border-pink-500/20 text-slate-100 shadow-lg";
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-2">
+            <h4 class="font-bold text-pink-300 text-base">من: ${item.sender}</h4>
+            <span class="text-xs text-slate-400">${dateStr}</span>
+          </div>
+          <p class="text-slate-200 text-sm leading-relaxed mb-2 bg-slate-900/50 p-3 rounded-xl">${item.text}</p>
+          
+          ${item.reply ? `
+            <div class="mr-4 mt-3 bg-pink-950/70 border-r-4 border-pink-500 p-3 rounded-xl">
+              <span class="text-xs text-pink-300 font-bold block mb-1">👑 رد العروسة (تغريد):</span>
+              <p class="text-xs text-pink-100 font-medium">${item.reply}</p>
+            </div>
+          ` : ''}
+        `;
+        publicList.appendChild(card);
+      });
+    });
+
+    // --- Realtime Messages Listener for Bride (Dashboard) ---
     let unsubscribe = null;
     function listenToMessages() {
       const q = query(wishesRef, orderBy("createdAt", "desc"));
@@ -219,14 +261,19 @@
           card.innerHTML = `
             <div class="flex justify-between items-start mb-2">
               <h4 class="font-bold text-pink-300 text-lg">من: ${item.sender}</h4>
-              <span class="text-xs text-slate-400">${dateStr}</span>
+              <div class="flex items-center gap-3">
+                <span class="text-xs text-slate-400">${dateStr}</span>
+                <button data-id="${id}" class="btn-delete bg-red-600/80 hover:bg-red-600 text-white text-xs px-2.5 py-1 rounded-lg font-bold transition">حذف 🗑️</button>
+              </div>
             </div>
             <p class="text-slate-200 text-sm leading-relaxed mb-4 bg-slate-900/50 p-3 rounded-xl">${item.text}</p>
             
             ${item.reply ? `
-              <div class="bg-pink-950/60 border border-pink-500/30 p-3 rounded-xl">
-                <span class="text-xs text-pink-400 font-bold block mb-1">ردّكِ يا تغريد:</span>
-                <p class="text-xs text-slate-200">${item.reply}</p>
+              <div class="bg-pink-950/60 border border-pink-500/30 p-3 rounded-xl flex justify-between items-center">
+                <div>
+                  <span class="text-xs text-pink-400 font-bold block mb-1">ردّكِ الحالي:</span>
+                  <p class="text-xs text-slate-200">${item.reply}</p>
+                </div>
               </div>
             ` : `
               <div class="mt-3 flex gap-2">
@@ -247,6 +294,17 @@
 
             const docRef = doc(db, "wishes", docId);
             await updateDoc(docRef, { reply: replyText });
+          });
+        });
+
+        // Attach event listeners to Delete buttons
+        document.querySelectorAll('.btn-delete').forEach(button => {
+          button.addEventListener('click', async (e) => {
+            const docId = e.target.getAttribute('data-id');
+            if (confirm("هل أنتِ متأكدة من حذف هذه الرسالة؟")) {
+              const docRef = doc(db, "wishes", docId);
+              await deleteDoc(docRef);
+            }
           });
         });
       });
